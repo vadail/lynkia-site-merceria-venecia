@@ -20,6 +20,7 @@ async function store() {
 }
 
 function icon(p) {
+  if (p && p.favicon_url) return `<link rel="icon" href="${esc(p.favicon_url)}" />`;
   if (p && p.avatar_url) return `<link rel="icon" href="${esc(p.avatar_url)}" />`;
   const letter = ((p && p.name) || "?").trim().charAt(0).toUpperCase();
   const color = (p && p.theme && p.theme.accent) || (p && p.accent_color) || "#7c6bf5";
